@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Seasonal Personality</title>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<style>
+ h1 {
+ font-family: 'Tangerine', serif;
+ font-size: 55px;
+ text-shadow: 4px 4px 4px #aaa;
+ text-align: center;
+ }
+
+ #main {
+ margin: 10px;
+ width: 500px;
+ padding: 25px;
+ border: 25px solid navy;
+ border-color: #CAE1FF;
+ }
+	
+ table {
+ margin-bottom: 30px;
+ }
+	
+ td {
+ margin bottom: 5px;
+ }
+		
+</style>
+	
+</head>
+  
+<body>
+
+<body>
+<div id="main">
+<div id="header"><h1>What Season is Your Personality?</h1></div>
+<table>
+<form  id="form1" action=" " onsubmit="computeForm()"/>
+<tr>
+ <td><p>1) What is your favorite movie genre?</p></td>
+</tr>
+<tr>
+ <td><input type="radio" name="movie" id="action" value="1" />Action</td>
+ <td><input type="radio" name="movie" id="indie" value="3" />Indie</td>
+</tr>
+<tr>
+ <td><input type="radio" name="movie" id="drama" value="1" />Drama</td>
+ <td><input type="radio" name="movie" id="comedy" value="3" />Comedy</td>
+</tr>
+</table>
+
+<table>
+<tr>
+ <td><p>2) Which is your dream vacation spot?</p></td>
+</tr>
+<tr>
+ <td><input type="radio" name="vacation" id="switzerland" value="2" />Switzerland</td>
+ <td><input type="radio" name="vacation" id="japan" value="4" />Japan</td>
+</tr>
+<tr>
+ <td><input type="radio" name="vacation" id="austria" value="2" />Austria</td>
+ <td><input type="radio" name="vacation" id="hawaii" value="4" />Hawaii</td>
+</tr>
+</table>
+
+<table>
+<tr>
+ <td><p>3) What would you prefer to live near?</p></td>
+<tr>
+ <td><input type="radio" name="house" id="shops" value="3" />Shops</td>
+ <td><input type="radio" name="house" id="mountains" value="5" />Snow-capped mountains</td>
+</tr>
+<tr>
+ <td><input type="radio" name="house" id="school" value="3" />School</td>
+ <td><input type="radio" name="house" id="beach" value="5" />Beach</td>
+</tr>
+</table>
+
+<table>
+<tr>
+ <td><p>4) On weekends, how often are you home?</p></td>
+</tr>
+<tr>
+ <td><input type="radio" name="weekend" id="sometimes" value="4" />Sometimes</td>
+ <td><input type="radio" name="weekend" id="often" value="6" />Often</td>
+</tr>
+<tr>
+ <td><input type="radio" name="weekend" id="always" value="4" />Always</td>
+ <td><input type="radio" name="weekend" id="barely" value="6" />Barely</td>
+</tr>
+</table>
+
+<table>
+<tr>
+ <td>
+  <input type="button" value="What's my Season?" onclick="computeForm(form1)";>
+  <input type="reset" value="Reset">
+ </td>
+</tr>
+
+</form>
+</table>
+</div>
+
+<script>
+function getValue(name){
+var s =0;
+var o = document.getElementsByName(name);
+for (var n = 0; n < o.length; n++){
+    if (o.item(n).checked){
+        s = parseInt(o.item(n).value);
+    }
+}
+
+return s;
+}
+
+function computeForm(form) {
+var total;
+
+var movie = parseInt(getValue('movie'));
+var vacation = parseInt(getValue('vacation'));
+var house = parseInt(getValue('house'));
+var weekend = parseInt(getValue('weekend'));
+
+total = (movie + vacation + house + weekend);
+
+console.log(total);   
+
+if (total==0){ alert("Please complete all questions!"); }
+else if (total >=10 && total<=14){ window.location.href="https://en.wikipedia.org/wiki/Winter"; }
+else if (total >=15 && total<=18){ window.location.href="https://en.wikipedia.org/wiki/Summer"; }
+}
+	
+
+</script>
+
+</body>
+
+</html>
